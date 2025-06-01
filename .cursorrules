@@ -1,0 +1,33 @@
+# General AI Coder Guidelines for Project: Software Solutions Portfolio (Pure React Version)
+
+## Project Context & Documentation
+- **Primary Source of Truth:** `project_docs.txt`. Refer to this file for project goals, tech stack, phased approach, current progress, and key decisions.
+- **Updates to Documentation:** I will update `project_docs.txt` when instructed by the Architect/System Designer. Specifically, I will update the 'Current Progress' and 'Chat Summary' sections.
+
+## Technical Guidelines
+- **Tech Stack:**
+    - Framework/Library: React (with Vite)
+    - Language: TypeScript
+    - Styling: Tailwind CSS (utilizing CSS Variables for dynamic theming)
+    - Animations: Framer Motion
+    - State Management: React Context API (for global theming), React Hooks (`useState`, `useReducer`) for component state.
+- **Code Style:**
+    - Write clean, readable, and well-commented TypeScript/TSX code.
+    - Create modular and reusable React components.
+    - Follow React best practices (e.g., proper hook usage, component composition).
+    - Utilize Tailwind CSS utility classes effectively for styling. Avoid custom CSS files beyond `src/index.css` for global styles/Tailwind setup, unless absolutely necessary for complex, non-utility-achievable styles that are discussed and agreed upon.
+- **File Naming:**
+    - Components: PascalCase (e.g., `HeroSection.tsx`, `ThemeCard.tsx`).
+    - Other `.ts`/`.tsx` files (e.g., utility functions, data files): camelCase or PascalCase depending on export (e.g., `themeHelpers.ts`, `Themes.ts` if exporting a class/object).
+    - Folders: kebab-case (e.g., `ui-gallery`, `hero-elements`) or PascalCase for component groups (e.g., `CommonComponents`). Let's prefer kebab-case for general utility/data folders and PascalCase if a folder specifically groups related components. For this project, `src/components`, `src/data`, `src/contexts` (for React Context) are good starting points.
+- **Commits (Guidance for Architect prompts):** Commits should be logical and atomic. The Architect will provide commit messages.
+
+## Interaction
+- **Clarity:** If instructions are ambiguous, ask for clarification.
+- **Scope:** Only perform actions explicitly requested. If a request implies broader changes, state these potential side-effects or necessary additional steps before proceeding.
+- **Summaries:** After making code changes, provide a concise summary of what was done, which files were modified, and any new files created.
+
+## Specific Project Elements
+- **Theming:** The project involves dynamic theme switching across the entire application. This will be managed via React Context and CSS Variables. Be prepared to implement and consume this system.
+- **Performance:** Strive for performant solutions. Be mindful of re-renders, memoization where appropriate, and efficient state management.
+- **Visuals:** The goal is a "visually impressive" UI. Pay attention to detail in implementing designs. 

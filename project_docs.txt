@@ -1,0 +1,39 @@
+# MY SOLUTIONS PORTFOLIO - PROJECT DOCUMENTATION
+
+## 1. Project Overview
+• Project Idea: Portfolio/landing page for software solutions
+• Primary Goal: Showcase UI expertise
+• Audience: Potential clients
+• Platform: Web - Pure React SPA
+
+## 2. Key Features (Initial Build Focus)
+• Floating Contact Button (reveals services)
+• UI Examples Gallery (cards for themes, dynamic app-wide theme switching)
+• Hero Section (interactive carousel for UI showcases: mobile, desktop, web)
+• Default Visual Direction (black/white, minimalist, sleek, clean)
+• Quality/Performance (high quality, top performance for SPA)
+
+## 3. High-Level Architecture & Tech Stack (Pure React)
+• React (with Vite)
+• TypeScript
+• Tailwind CSS (for dynamic theming via CSS Variables)
+• Framer Motion
+• React Context API (for global theming)
+• React Router DOM (for potential future routing)
+
+## 4. Initial Phased Approach (Client-Side SPA)
+• Phase 1: Core Structure, Global Styles & Default Theme (Hero with Carousel)
+• Phase 2: UI Examples Gallery Data & Card Display
+• Phase 3: Dynamic Theming Mechanism
+• Phase 4: "Services Offered" Section & Contact Interaction
+• Phase 5: Polish, Performance Optimization & QA
+
+## 5. Current Progress
+• Pure React project (Vite + TS) initialized. Tailwind CSS and Framer Motion installed and configured.
+• Initial Git commits made.
+• Next step: Review and finalize initial plans. Then, proceed with Phase 1: Core Structure, Global Styles & Default Theme.
+
+## 6. Chat Summary / Key Decisions Log
+• [2025-06-01] - Project pivoted to a pure React (Vite + TS) stack from Next.js. Core features remain similar. New project initialized.
+
+## 7. Dev Notes / Lessons Learned 
