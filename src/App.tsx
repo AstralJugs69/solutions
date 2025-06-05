@@ -58,15 +58,15 @@ function App() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="#contact-form"
-                className="btn btn-primary px-8 py-3 text-lg font-medium"
+                className="btn btn-primary px-6 py-3 text-base shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center"
               >
-                Contact Me
+                <span>Contact Me</span>
               </a>
               <a
                 href="#portfolio"
-                className="btn btn-outline px-8 py-3 text-lg font-medium"
+                className="btn btn-outline px-6 py-3 text-base transition-all duration-300 flex items-center justify-center"
               >
-                View My Work
+                <span>View My Work</span>
               </a>
             </div>
           </div>

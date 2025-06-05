@@ -16,6 +16,19 @@
     --color-primary-800: 7 89 133;
     --color-primary-900: 12 74 110;
     --color-primary-950: 8 47 73;
+    
+    --color-secondary: 6 182 212;
+    --color-secondary-50: 236 254 255;
+    --color-secondary-100: 207 250 254;
+    --color-secondary-200: 165 243 252;
+    --color-secondary-300: 103 232 249;
+    --color-secondary-400: 34 211 238;
+    --color-secondary-500: 6 182 212;
+    --color-secondary-600: 8 145 178;
+    --color-secondary-700: 14 116 144;
+    --color-secondary-800: 21 94 117;
+    --color-secondary-900: 22 78 99;
+    --color-secondary-950: 8 51 68;
   }
 
   /* Smooth scroll for the entire document */
@@ -54,15 +67,15 @@
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-gray-900 focus:ring-opacity-50;
   }
   
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply bg-sky-500 text-white hover:bg-sky-600 focus:ring-sky-400 shadow-sm;
   }
   
   .btn-outline {
-    @apply border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800;
+    @apply border border-sky-500 dark:border-sky-400 text-sky-600 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/20 focus:ring-sky-400;
   }
 
   /* Form elements */
@@ -128,6 +141,10 @@
   /* Text gradient */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-700;
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary-500 to-secondary-700;
   }
   
   /* Container */

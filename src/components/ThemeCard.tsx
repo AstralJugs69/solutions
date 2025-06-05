@@ -163,7 +163,7 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme, onClick }) => {
           </div>
         </div>
 
-                  {/* Technologies */}
+        {/* Technologies */}
         {theme.technologies && theme.technologies.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-1">
             {theme.technologies.slice(0, 3).map((tech: string, index: number) => (
