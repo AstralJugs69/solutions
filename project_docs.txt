@@ -31,9 +31,12 @@
 ## 5. Current Progress
 • Pure React project (Vite + TS) initialized. Tailwind CSS and Framer Motion installed and configured.
 • Initial Git commits made.
-• Next step: Review and finalize initial plans. Then, proceed with Phase 1: Core Structure, Global Styles & Default Theme.
+• Created placeholder components: `UIGallery`, `ServicesOffered`, `FloatingContactButton`, `ThemeCard`.
+• Implemented `HeroSection` with a functional Embla Carousel displaying three showcase slides (Mobile, Desktop, Web) with autoplay, controlled drag, and hover-to-pause. Basic slide content and styling in place.
+• Next step: Phase 2 - Define theme data structure, implement `ThemeCard.tsx` with proper styling, and display theme cards in `UIGallery.tsx`.
 
 ## 6. Chat Summary / Key Decisions Log
 • [2025-06-01] - Project pivoted to a pure React (Vite + TS) stack from Next.js. Core features remain similar. New project initialized.
+• [2025-06-01] - Phase 1: Core structure established. HeroSection with working Embla Carousel implemented. Placeholder components for other sections created. Committed changes.
 
 ## 7. Dev Notes / Lessons Learned 

@@ -1,6 +1,7 @@
 .embla {
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .embla__container {
@@ -13,4 +14,33 @@
   min-width: 0;
   position: relative;
   transition: transform 0.5s ease, opacity 0.3s ease;
-} 
+}
+
+/* Dots */
+.embla__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.embla__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.embla__dot--selected {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dark .embla__dot {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .embla__dot--selected {
+  background-color: rgba(255, 255, 255, 0.8);
+}
