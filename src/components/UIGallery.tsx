@@ -74,6 +74,7 @@ const UIGallery: React.FC = () => {
         {/* Mobile filter dropdown */}
         <div className="md:hidden mb-8 relative">
           <button
+            type="button"
             className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-text bg-background border border-accent/30 rounded-lg shadow-sm"
             onClick={() => setIsFilterOpen(!isFilterOpen)}
             aria-expanded={isFilterOpen}
@@ -98,6 +99,7 @@ const UIGallery: React.FC = () => {
               >
                 {categories.map((category) => (
                   <button
+                  type="button"
                   key={category.id}
                   role="option"
                   aria-selected={selectedCategory === category.id}
@@ -128,6 +130,7 @@ const UIGallery: React.FC = () => {
           >
             {categories.map((category) => (
               <button
+                type="button"
                 key={category.id}
                 role="tab"
                 aria-selected={selectedCategory === category.id}
@@ -197,6 +200,7 @@ const UIGallery: React.FC = () => {
                     {currentTheme.name}
                   </h3>
                   <button
+                    type="button"
                     onClick={() => setSelectedThemeId(null)}
                     className="p-1 rounded-full hover:bg-accent/10"
                     aria-label="Close project details"
@@ -259,6 +263,7 @@ const UIGallery: React.FC = () => {
                         <div className="pt-4 border-t border-accent/20">
                           <div className="flex flex-col sm:flex-row gap-3">
                             <button
+                              type="button"
                               onClick={() => {
                                 setCurrentTheme(currentTheme);
                                 setSelectedThemeId(null);

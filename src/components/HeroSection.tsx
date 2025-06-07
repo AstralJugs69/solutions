@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import React, { useEffect, useState } from 'react';
 import { FiArrowRight, FiCode, FiSmartphone, FiMonitor } from 'react-icons/fi';
 import { Link } from 'react-scroll';
@@ -14,17 +13,17 @@ const features: Feature[] = [
   {
     icon: <FiCode className="w-6 h-6 text-primary-500" />,
     title: 'Web Development',
-    description: 'Modern, responsive websites built with the latest technologies',
+    description: 'Building modern, responsive websites with cutting-edge technologies.',
   },
   {
     icon: <FiSmartphone className="w-6 h-6 text-primary-500" />,
     title: 'Mobile Apps',
-    description: 'Cross-platform mobile applications for iOS and Android',
+    description: 'Developing cross-platform mobile applications for seamless user experiences on iOS and Android.',
   },
   {
     icon: <FiMonitor className="w-6 h-6 text-primary-500" />,
     title: 'UI/UX Design',
-    description: 'Beautiful, intuitive interfaces that enhance user experience',
+    description: 'Crafting beautiful and intuitive interfaces that captivate users and elevate engagement.',
   },
 ];
 
@@ -117,7 +116,7 @@ const HeroSection: React.FC = () => {
         
         {/* Enhanced floating shapes with more dramatic animations */}
         <div className="absolute inset-0 overflow-hidden motion-reduce:hidden">
-          {[...Array(8)].map((_, i) => (
+          {Array.from({ length: 8 }).map((_, i) => (
             <motion.div
               key={i}
               className="absolute rounded-full bg-primary-500/20 dark:bg-primary-400/20 backdrop-blur-sm motion-reduce:animate-none"

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, use, useState, useEffect, useMemo, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import { themeOptionsData, type ThemeOption } from '../data/themes';
 
@@ -18,7 +18,7 @@ const ThemeContext = createContext<ThemeContextProps>({
   toggleDarkMode: () => {},
 });
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => use(ThemeContext);
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -81,7 +81,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider
+    <ThemeContext
       value={{
         currentTheme,
         setCurrentTheme: handleSetCurrentTheme,
@@ -90,6 +90,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       }}
     >
       {children}
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }; 

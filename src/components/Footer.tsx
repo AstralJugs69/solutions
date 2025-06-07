@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import React from 'react'; // Added React import for FC
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
@@ -127,7 +126,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-accent/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-text/70">
-              &copy; {currentYear} Your Name. All rights reserved.
+              &copy; {currentYear} Your Company/Name. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a

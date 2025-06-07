@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { FiCode, FiSmartphone, FiMonitor, FiLayers, FiDatabase, FiServer } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 // Import anime.js with TypeScript ignore
-// @ts-ignore
+// @ts-expect-error // Use @ts-expect-error instead
 import anime from 'animejs';
 // Removed TargetAndTransition as it's not explicitly used
 
@@ -20,7 +20,7 @@ const services: Service[] = [
   {
     id: 'web-dev',
     title: 'Web Development',
-    description: 'Custom, responsive websites built with modern technologies like React, Next.js, and TypeScript.',
+    description: 'Building custom, responsive websites with modern tech like React, Next.js, and TypeScript.',
     icon: <FiCode className="w-8 h-8" />,
     color: 'from-blue-600 to-cyan-500',
     textColor: 'group-hover:text-blue-500',
@@ -29,7 +29,7 @@ const services: Service[] = [
   {
     id: 'mobile-apps',
     title: 'Mobile Applications',
-    description: 'Cross-platform mobile apps for iOS and Android using React Native or Flutter.',
+    description: 'Developing cross-platform mobile apps for iOS & Android, using React Native or Flutter.',
     icon: <FiSmartphone className="w-8 h-8" />,
     color: 'from-purple-600 to-pink-500',
     textColor: 'group-hover:text-purple-500',
@@ -38,7 +38,7 @@ const services: Service[] = [
   {
     id: 'ui-ux',
     title: 'UI/UX Design',
-    description: 'Beautiful, intuitive interfaces that enhance user experience and drive engagement.',
+    description: 'Crafting beautiful, intuitive interfaces that enhance user experience and drive engagement.',
     icon: <FiMonitor className="w-8 h-8" />,
     color: 'from-amber-600 to-orange-500',
     textColor: 'group-hover:text-amber-500',
@@ -47,7 +47,7 @@ const services: Service[] = [
   {
     id: 'fullstack',
     title: 'Full-Stack Solutions',
-    description: 'End-to-end development with frontend, backend, and database integration.',
+    description: 'Providing end-to-end development: frontend, backend, and database integration.',
     icon: <FiLayers className="w-8 h-8" />,
     color: 'from-emerald-600 to-green-500',
     textColor: 'group-hover:text-emerald-500',
@@ -56,7 +56,7 @@ const services: Service[] = [
   {
     id: 'database',
     title: 'Database Design',
-    description: 'Efficient and scalable database architecture for your application needs.',
+    description: "Designing efficient, scalable database architectures tailored to your application's needs.",
     icon: <FiDatabase className="w-8 h-8" />,
     color: 'from-rose-600 to-red-500',
     textColor: 'group-hover:text-rose-500',
@@ -65,7 +65,7 @@ const services: Service[] = [
   {
     id: 'devops',
     title: 'DevOps & Deployment',
-    description: 'CI/CD pipelines, containerization, and cloud deployment solutions.',
+    description: 'Implementing CI/CD pipelines, containerization, and cloud deployment solutions.',
     icon: <FiServer className="w-8 h-8" />,
     color: 'from-indigo-600 to-violet-500',
     textColor: 'group-hover:text-indigo-500',
@@ -257,7 +257,7 @@ const ServicesOffered: React.FC = () => {
       
       {/* Floating circles in background */}
       <div className="absolute inset-0 -z-10 motion-reduce:hidden">
-        {[...Array(6)].map((_, i) => (
+        {Array.from({ length: 6 }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-primary-500/10 dark:bg-primary-400/10 motion-reduce:animate-none"

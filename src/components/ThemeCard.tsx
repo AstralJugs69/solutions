@@ -56,8 +56,8 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme, onClick }) => {
       .filter(([key]) => key !== 'text') // Exclude text color from the palette
       .map(([name, hex]) => ({
         name,
-        hex: hex as string,
-        isLight: getContrastYIQ(hex as string) === 'light'
+        hex: hex, // Removed 'as string'
+        isLight: getContrastYIQ(hex) === 'light' // Removed 'as string'
       }));
   }, [theme.colors]);
 

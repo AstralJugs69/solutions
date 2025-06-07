@@ -77,6 +77,7 @@ const FloatingContactButton: React.FC = () => {
     <>
       <div className="fixed bottom-6 right-6 z-50">
         <button
+          type="button"
           onClick={toggleForm}
           className={`w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center motion-reduce:transform-none ${
             isOpen ? 'transform rotate-45' : ''
@@ -113,7 +114,7 @@ const FloatingContactButton: React.FC = () => {
                 {submitStatus.message}
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={(e) => { e.preventDefault(); void handleSubmit(e); }} className="space-y-4">
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <FiUser className="h-5 w-5 text-text/50" aria-hidden="true" />
