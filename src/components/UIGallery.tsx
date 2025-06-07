@@ -5,6 +5,10 @@ import { themeOptionsData, type Category } from '../data/themes'; // Removed The
 import ThemeCard from './ThemeCard';
 import { useTheme } from '../contexts/ThemeContext';
 
+interface UIGalleryProps {
+  onSelectShowcase: (showcaseId: string) => void;
+}
+
 // Categories for filtering - moved outside component
 const categories: { id: Category | 'all'; name: string }[] = [
   { id: 'all', name: 'All Work' },
@@ -23,10 +27,10 @@ const formatCategoryForDisplay = (category: Category | undefined): string => {
   }
 };
 
-const UIGallery: React.FC = () => {
+const UIGallery: React.FC<UIGalleryProps> = ({ onSelectShowcase }) => {
   const [selectedCategory, setSelectedCategory] = useState<Category | 'all'>('all');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
+  // Removed selectedThemeId and setSelectedThemeId state
 
   // Filter themes based on selected category - memoized
   const filteredThemes = useMemo(() => {
@@ -50,13 +54,10 @@ const UIGallery: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
-  // Use theme context
-  const { setCurrentTheme } = useTheme();
+  // Use theme context - setCurrentTheme is no longer used here as modal is removed
+  // const { setCurrentTheme } = useTheme();
 
-  // Get theme details for modal - memoized
-  const currentTheme = useMemo(() => {
-    return themeOptionsData.find((t) => t.id === selectedThemeId) || null;
-  }, [selectedThemeId]);
+  // Removed currentTheme memoization (was for modal)
 
   return (
     <section id="portfolio" className="py-20 bg-background">
@@ -167,144 +168,13 @@ const UIGallery: React.FC = () => {
               >
                 <ThemeCard 
                   theme={theme} 
-                  onClick={() => setSelectedThemeId(theme.id)}
+                  onClick={() => onSelectShowcase(theme.id)} // Changed to call onSelectShowcase
                 />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {/* Project Modal */}
-        <AnimatePresence>
-          {currentTheme && (
-            <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 motion-reduce:animate-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedThemeId(null)}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="project-modal-title"
-            >
-              <motion.div
-                className="relative w-full max-w-4xl max-h-[90vh] bg-background rounded-xl shadow-2xl overflow-hidden overflow-y-auto text-text motion-reduce:animate-none"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Modal header */}
-                <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background border-b border-accent/20">
-                  <h3 id="project-modal-title" className="text-xl font-bold">
-                    {currentTheme.name}
-                  </h3>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedThemeId(null)}
-                    className="p-1 rounded-full hover:bg-accent/10"
-                    aria-label="Close project details"
-                  >
-                    <FiX className="w-6 h-6" />
-                  </button>
-                </div>
-
-                {/* Modal content */}
-                <div className="p-6">
-                  <div className="mb-6 rounded-lg overflow-hidden bg-accent/10">
-                    <img 
-                      src={currentTheme.previewImageUrl} 
-                      alt={`Screenshot of ${currentTheme.name}`} 
-                      className="w-full h-auto"
-                      loading="lazy"
-                    />
-                  </div>
-                  
-                  <div className="grid md:grid-cols-3 gap-8">
-                    <div className="md:col-span-2">
-                      <h4 className="text-lg font-semibold mb-2">Project Overview</h4>
-                      <p className="text-text/80 mb-4">
-                        {currentTheme.description || 'No description available.'}
-                      </p>
-                      
-                      {currentTheme.technologies && currentTheme.technologies.length > 0 && (
-                        <>
-                          <h4 className="text-lg font-semibold mb-2 mt-6">Technologies</h4>
-                          <div className="flex flex-wrap gap-2 mb-6">
-                            {currentTheme.technologies.map((tech: string, index: number) => (
-                              <span 
-                                key={index}
-                                className="px-3 py-1 text-sm rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                    
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="text-sm font-medium text-text/70 mb-2">Category</h4>
-                        <p className="font-medium">
-                          {formatCategoryForDisplay(currentTheme.category)}
-                        </p>
-                      </div>
-                      
-                      {currentTheme.year && (
-                        <div>
-                          <h4 className="text-sm font-medium text-text/70 mb-2">Year</h4>
-                          <p className="font-medium">{currentTheme.year}</p>
-                        </div>
-                      )}
-                      
-                      {(currentTheme.demoUrl || currentTheme.sourceUrl) && (
-                        <div className="pt-4 border-t border-accent/20">
-                          <div className="flex flex-col sm:flex-row gap-3">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setCurrentTheme(currentTheme);
-                                setSelectedThemeId(null);
-                              }}
-                              className="btn bg-primary text-white hover:bg-primary/90 w-full sm:w-auto justify-center"
-                            >
-                              <FiEdit3 className="mr-2" />
-                              Apply Theme
-                            </button>
-                            {currentTheme.demoUrl && currentTheme.demoUrl !== '#' && (
-                              <a
-                                href={currentTheme.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn border border-accent text-accent hover:bg-accent/10 w-full sm:w-auto justify-center"
-                              >
-                                <FiExternalLink className="mr-2" />
-                                Live Demo
-                              </a>
-                            )}
-                            {currentTheme.sourceUrl && currentTheme.sourceUrl !== '#' && (
-                              <a
-                                href={currentTheme.sourceUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn border border-accent text-accent hover:bg-accent/10 w-full sm:w-auto justify-center"
-                              >
-                                <FiGithub className="mr-2" />
-                                Source Code
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Project Modal Removed */}
       </div>
     </section>
   );
