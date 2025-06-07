@@ -6,6 +6,11 @@ import UIGallery from './components/UIGallery';
 import ServicesOffered from './components/ServicesOffered';
 import ThemeSelector from './components/ThemeSelector'; // Import the new component
 import EcommerceShowcase from './components/showcase/ecommerce/EcommerceShowcase'; // Import E-commerce Showcase
+import FitnessTrackerShowcase from './components/showcase/fitness/FitnessTrackerShowcase'; // Import Fitness Showcase
+import DesignSystemShowcase from './components/showcase/designsystem/DesignSystemShowcase'; // Import Design System Showcase
+import TaskManagerShowcase from './components/showcase/taskmanager/TaskManagerShowcase'; // Import Task Manager Showcase
+import RecipeFinderShowcase from './components/showcase/recipefinder/RecipeFinderShowcase'; // Import Recipe Finder Showcase
+import PortfolioThemeShowcase from './components/showcase/portfoliotheme/PortfolioThemeShowcase'; // Import Portfolio Theme Showcase
 import Footer from './components/Footer';
 import FloatingContactButton from './components/FloatingContactButton';
 
@@ -58,6 +63,21 @@ function App() {
 
         {/* Temporary E-commerce Showcase Section */}
         <EcommerceShowcase />
+
+        {/* Temporary Fitness Tracker Showcase Section */}
+        <FitnessTrackerShowcase />
+
+        {/* Temporary Design System Showcase Section */}
+        <DesignSystemShowcase />
+
+        {/* Temporary Task Manager Showcase Section */}
+        <TaskManagerShowcase />
+
+        {/* Temporary Recipe Finder Showcase Section */}
+        <RecipeFinderShowcase />
+
+        {/* Temporary Portfolio Theme Showcase Section */}
+        <PortfolioThemeShowcase />
 
         {/* Contact Section - Simple CTA */}
         <section id="contact" className="section bg-accent/5 dark:bg-accent/10 py-12 md:py-20">
