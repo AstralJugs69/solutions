@@ -47,7 +47,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     return false;
   });
 
-  // Update theme in localStorage and apply CSS variables
+  // Apply theme colors as CSS variables and save preference to localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('appTheme', currentTheme.id);
