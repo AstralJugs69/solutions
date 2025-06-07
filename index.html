@@ -38,6 +38,22 @@
         src: url('https://rsms.me/inter/font-files/Inter.var.woff2') format('woff2');
       }
     </style>
+    <script>
+      (function() {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mediaQuery.matches) {
+          document.documentElement.classList.add('motion-reduce');
+        }
+        // Optional: Add listener to update if preference changes
+        // mediaQuery.addEventListener('change', () => {
+        //   if (mediaQuery.matches) {
+        //     document.documentElement.classList.add('motion-reduce');
+        //   } else {
+        //     document.documentElement.classList.remove('motion-reduce');
+        //   }
+        // });
+      })();
+    </script>
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
     <div id="root"></div>

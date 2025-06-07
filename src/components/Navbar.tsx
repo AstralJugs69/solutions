@@ -4,6 +4,19 @@ import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 
+interface NavItem {
+  name: string;
+  to: string;
+  offset: number;
+}
+
+const navItems: NavItem[] = [
+  { name: 'Home', to: 'home', offset: -80 },
+  { name: 'Services', to: 'services', offset: -80 },
+  { name: 'Portfolio', to: 'portfolio', offset: -60 },
+  { name: 'Contact', to: 'contact', offset: 0 },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -23,27 +36,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
-  const navItems = [
-    { name: 'Home', to: 'home', offset: -80 },
-    { name: 'Services', to: 'services', offset: -80 },
-    { name: 'Portfolio', to: 'portfolio', offset: -60 },
-    { name: 'Contact', to: 'contact', offset: 0 },
-  ];
-
   return (
     <motion.header 
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-gradient-to-r from-white/95 to-gray-50/95 dark:from-gray-900/95 dark:to-gray-800/95 backdrop-blur-md' 
+          ? 'bg-background/95 backdrop-blur-md'
           : 'bg-transparent'
-      }`}
+      } motion-reduce:transition-none`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
     >
       {/* Glow effect line */}
       <motion.div 
-        className="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-primary-600/0 via-primary-500/80 to-primary-600/0 dark:from-primary-500/0 dark:via-primary-400/80 dark:to-primary-500/0"
+        className="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-primary-600/0 via-primary-500/80 to-primary-600/0 dark:from-primary-500/0 dark:via-primary-400/80 dark:to-primary-500/0 motion-reduce:animate-none"
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
         transition={{ delay: 0.3, duration: 0.8 }}
@@ -78,7 +84,7 @@ const Navbar = () => {
                 offset={item.offset}
                 duration={500}
                 onSetActive={() => setActiveSection(item.to)}
-                className="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 cursor-pointer font-medium relative group"
+                className="text-text hover:text-primary dark:hover:text-primary transition-all duration-200 cursor-pointer font-medium relative group"
               >
                 <motion.div
                   className="relative overflow-hidden"
@@ -101,7 +107,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <motion.button
               onClick={toggleDarkMode}
-              className="p-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2.5 rounded-full text-text hover:bg-accent/10 transition-colors"
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -118,7 +124,7 @@ const Navbar = () => {
           <div className="flex md:hidden items-center space-x-4">
             <motion.button
               onClick={toggleDarkMode}
-              className="p-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2.5 rounded-full text-text hover:bg-accent/10 transition-colors"
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -131,10 +137,12 @@ const Navbar = () => {
             </motion.button>
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="p-2 rounded-md text-text hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-primary"
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu-nav"
             >
               {isOpen ? (
                 <FiX className="w-6 h-6" />
@@ -149,10 +157,11 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <motion.div
+          id="mobile-menu-nav"
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700"
+          className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-t border-accent/20 motion-reduce:animate-none"
       >
           <div className="container mx-auto px-4 flex flex-col space-y-4 py-4">
             {navItems.map((item, index) => (
@@ -161,6 +170,7 @@ const Navbar = () => {
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
+                className="motion-reduce:animate-none motion-reduce:transition-none"
               >
             <Link
               activeClass="text-primary-600 dark:text-primary-400 font-medium"
@@ -169,7 +179,7 @@ const Navbar = () => {
               smooth={true}
               offset={item.offset}
               duration={500}
-                  className="text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer py-2 px-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 block"
+                  className="text-text hover:text-primary transition-colors cursor-pointer py-2 px-3 rounded-md hover:bg-accent/10 block"
               onClick={() => setIsOpen(false)}
             >
               {item.name}

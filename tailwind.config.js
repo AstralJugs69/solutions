@@ -9,12 +9,13 @@ export default {
     extend: {
       colors: {
         primary: {
+          DEFAULT: 'rgb(var(--color-theme-primary) / <alpha-value>)',
           50: 'rgb(240 249 255)',
           100: 'rgb(224 242 254)',
           200: 'rgb(186 230 253)',
           300: 'rgb(125 211 252)',
           400: 'rgb(56 189 248)',
-          500: 'rgb(14 165 233)', // Base primary color
+          500: 'rgb(var(--color-theme-primary) / <alpha-value>)', // Base primary color
           600: 'rgb(2 132 199)',
           700: 'rgb(3 105 161)',
           800: 'rgb(7 89 133)',
@@ -22,18 +23,22 @@ export default {
           950: 'rgb(8 47 73)',
         },
         secondary: {
+          DEFAULT: 'rgb(var(--color-theme-secondary) / <alpha-value>)',
           50: 'rgb(236 254 255)',
           100: 'rgb(207 250 254)',
           200: 'rgb(165 243 252)',
           300: 'rgb(103 232 249)',
           400: 'rgb(34 211 238)',
-          500: 'rgb(6 182 212)', // Base secondary color
+          500: 'rgb(var(--color-theme-secondary) / <alpha-value>)', // Base secondary color
           600: 'rgb(8 145 178)',
           700: 'rgb(14 116 144)',
           800: 'rgb(21 94 117)',
           900: 'rgb(22 78 99)',
           950: 'rgb(8 51 68)',
         },
+        background: 'rgb(var(--color-theme-background) / <alpha-value>)',
+        text: 'rgb(var(--color-theme-text) / <alpha-value>)',
+        accent: 'rgb(var(--color-theme-accent) / <alpha-value>)',
         gray: {
           50: 'rgb(249 250 251)',
           100: 'rgb(243 244 246)',

@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { FiMessageSquare, FiX, FiSend, FiUser, FiMail, FiMessageCircle } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
+
+// TODO: Replace with actual environment variables
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
 const FloatingContactButton: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,16 +37,24 @@ const FloatingContactButton: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_name: 'Your Name' // Or your website name
+    };
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // In a real app, you would make an actual API call here
-      // await api.submitContactForm(formData);
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
       
       setSubmitStatus({
         success: true,
-        message: 'Thank you for your message! We\'ll get back to you soon.'
+        message: 'Thank you for your message! It has been sent successfully.'
       });
       setFormData({ name: '', email: '', message: '' });
       
@@ -49,9 +63,10 @@ const FloatingContactButton: React.FC = () => {
         setIsOpen(false);
       }, 3000);
     } catch (error) {
+      console.error('EmailJS error:', error);
       setSubmitStatus({
         success: false,
-        message: 'Failed to send message. Please try again later.'
+        message: 'Failed to send message. Please try again later or contact us directly.'
       });
     } finally {
       setIsSubmitting(false);
@@ -63,10 +78,12 @@ const FloatingContactButton: React.FC = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={toggleForm}
-          className={`w-14 h-14 rounded-full bg-primary-500 text-white shadow-lg hover:bg-primary-600 transition-all duration-300 flex items-center justify-center ${
+          className={`w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center motion-reduce:transform-none ${
             isOpen ? 'transform rotate-45' : ''
           }`}
           aria-label={isOpen ? 'Close contact form' : 'Open contact form'}
+          aria-expanded={isOpen}
+          aria-controls="contact-form-container"
         >
           {isOpen ? (
             <FiX className="w-6 h-6" />
@@ -77,16 +94,21 @@ const FloatingContactButton: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-40 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-all duration-300">
-          <div className="p-4 bg-primary-500 text-white">
-            <h3 className="text-lg font-semibold">Get in Touch</h3>
+        <div
+          id="contact-form-container"
+          className="fixed bottom-24 right-6 left-6 sm:left-auto sm:w-80 z-40 bg-background rounded-lg shadow-xl overflow-hidden transition-all duration-300 motion-reduce:transition-none"
+          role="region"
+          aria-labelledby="contact-form-header"
+        >
+          <div className="p-4 bg-primary text-white">
+            <h3 id="contact-form-header" className="text-lg font-semibold">Get in Touch</h3>
             <p className="text-sm opacity-90">We'd love to hear from you!</p>
           </div>
           
           <div className="p-4">
             {submitStatus ? (
               <div className={`p-4 rounded-md ${
-                submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                submitStatus.success ? 'bg-accent/10 text-accent' : 'bg-red-500/10 text-red-500'
               }`}>
                 {submitStatus.message}
               </div>
@@ -94,45 +116,51 @@ const FloatingContactButton: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FiUser className="h-5 w-5 text-gray-400" />
+                    <FiUser className="h-5 w-5 text-text/50" aria-hidden="true" />
                   </div>
                   <input
                     type="text"
                     name="name"
+                    id="contact-name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your Name"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    aria-label="Your Name"
+                    className="block w-full pl-10 pr-3 py-2 border border-accent/30 rounded-md bg-accent/5 text-text placeholder-text/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     required
                   />
                 </div>
                 
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FiMail className="h-5 w-5 text-gray-400" />
+                    <FiMail className="h-5 w-5 text-text/50" aria-hidden="true" />
                   </div>
                   <input
                     type="email"
                     name="email"
+                    id="contact-email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Your Email"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    aria-label="Your Email"
+                    className="block w-full pl-10 pr-3 py-2 border border-accent/30 rounded-md bg-accent/5 text-text placeholder-text/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     required
                   />
                 </div>
                 
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 pt-3 pointer-events-none">
-                    <FiMessageCircle className="h-5 w-5 text-gray-400" />
+                    <FiMessageCircle className="h-5 w-5 text-text/50" aria-hidden="true" />
                   </div>
                   <textarea
                     name="message"
+                    id="contact-message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
                     placeholder="Your Message"
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    aria-label="Your Message"
+                    className="block w-full pl-10 pr-3 py-2 border border-accent/30 rounded-md bg-accent/5 text-text placeholder-text/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     required
                   />
                 </div>
@@ -140,7 +168,7 @@ const FloatingContactButton: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
+                  className={`w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >

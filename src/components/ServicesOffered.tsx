@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 // Import anime.js with TypeScript ignore
 // @ts-ignore
 import anime from 'animejs';
-import type { TargetAndTransition } from 'framer-motion';
+// Removed TargetAndTransition as it's not explicitly used
 
 interface Service {
   id: string;
@@ -96,7 +96,7 @@ const ServicesOffered: React.FC = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   };
   
@@ -112,33 +112,37 @@ const ServicesOffered: React.FC = () => {
 
   // Initialize anime.js animations
   useEffect(() => {
-    // Title glow animation
-    if (titleGlowRef.current) {
-      anime({
-        targets: titleGlowRef.current,
-        scale: [1, 1.2, 1],
-        opacity: [0.5, 0.8, 0.5],
-        easing: 'easeInOutSine',
-        duration: 4000,
-        loop: true
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      // Title glow animation
+      if (titleGlowRef.current) {
+        anime({
+          targets: titleGlowRef.current,
+          scale: [1, 1.2, 1],
+          opacity: [0.5, 0.8, 0.5],
+          easing: 'easeInOutSine',
+          duration: 4000,
+          loop: true
+        });
+      }
+      
+      // Create animations for each icon based on type
+      iconRefs.current.forEach((iconRef, index) => {
+        if (!iconRef) return;
+
+        const service = services[index];
+        const animations = getAnimeConfig(service.animationType, iconRef);
+
+        anime({
+          targets: iconRef,
+          ...animations,
+          easing: 'easeInOutSine',
+          direction: 'alternate',
+          loop: true
+        });
       });
     }
-    
-    // Create animations for each icon based on type
-    iconRefs.current.forEach((iconRef, index) => {
-      if (!iconRef) return;
-      
-      const service = services[index];
-      const animations = getAnimeConfig(service.animationType, iconRef);
-      
-      anime({
-        targets: iconRef,
-        ...animations,
-        easing: 'easeInOutSine',
-        direction: 'alternate',
-        loop: true
-      });
-    });
   }, []);
   
   // Get anime.js configuration based on animation type
@@ -146,14 +150,21 @@ const ServicesOffered: React.FC = () => {
     // Common settings
     const duration = 2500;
     
-    // Get shadow color based on target's background gradient class
+    const colorMap: Record<string, string> = {
+      'from-blue-600': 'rgba(59, 130, 246, 0.7)',
+      'from-purple-600': 'rgba(168, 85, 247, 0.7)',
+      'from-amber-600': 'rgba(245, 158, 11, 0.7)',
+      'from-emerald-600': 'rgba(16, 185, 129, 0.7)',
+      'from-rose-600': 'rgba(244, 63, 94, 0.7)',
+      'from-indigo-600': 'rgba(79, 70, 229, 0.7)',
+    };
+
     const getColor = () => {
-      if (target.classList.contains('from-blue-600')) return 'rgba(59, 130, 246, 0.7)';
-      if (target.classList.contains('from-purple-600')) return 'rgba(168, 85, 247, 0.7)';
-      if (target.classList.contains('from-amber-600')) return 'rgba(245, 158, 11, 0.7)';
-      if (target.classList.contains('from-emerald-600')) return 'rgba(16, 185, 129, 0.7)';
-      if (target.classList.contains('from-rose-600')) return 'rgba(244, 63, 94, 0.7)';
-      if (target.classList.contains('from-indigo-600')) return 'rgba(79, 70, 229, 0.7)';
+      for (const className in colorMap) {
+        if (target.classList.contains(className)) {
+          return colorMap[className];
+        }
+      }
       return 'rgba(59, 130, 246, 0.7)'; // Default
     };
     
@@ -231,13 +242,13 @@ const ServicesOffered: React.FC = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90">
       {/* Background pattern */}
       <div className="absolute inset-0 -z-10 opacity-30 dark:opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-400" />
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-accent/30" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -245,11 +256,11 @@ const ServicesOffered: React.FC = () => {
       </div>
       
       {/* Floating circles in background */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 motion-reduce:hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-primary-500/10 dark:bg-primary-400/10"
+            className="absolute rounded-full bg-primary-500/10 dark:bg-primary-400/10 motion-reduce:animate-none"
             style={{
               width: Math.random() * 300 + 50,
               height: Math.random() * 300 + 50,
@@ -273,19 +284,19 @@ const ServicesOffered: React.FC = () => {
 
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-16 motion-reduce:animate-none motion-reduce:transition-none"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
           <motion.div 
-            className="inline-block mb-4"
+            className="inline-block mb-4 motion-reduce:animate-none"
             animate={floatAnimation}
           >
             <div className="relative mb-4">
               <div
                 ref={titleGlowRef}
-                className="absolute -inset-6 rounded-full opacity-70 blur-lg bg-gradient-to-r from-primary-500 to-primary-400 dark:opacity-50"
+                className="absolute -inset-6 rounded-full opacity-70 blur-lg bg-gradient-to-r from-primary-500 to-primary-400 dark:opacity-50 motion-reduce:hidden"
               />
               <h2 
                 ref={titleRef}
@@ -296,7 +307,7 @@ const ServicesOffered: React.FC = () => {
             </div>
           </motion.div>
           <motion.p 
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-text/80 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
@@ -306,7 +317,7 @@ const ServicesOffered: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 motion-reduce:animate-none motion-reduce:transition-none"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -315,14 +326,15 @@ const ServicesOffered: React.FC = () => {
             <motion.div 
               key={service.id}
               variants={itemVariants}
-              className="relative group"
+              className="relative group motion-reduce:transform-none motion-reduce:transition-none motion-reduce:hover:scale-100"
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              tabIndex={0} // Make card focusable
             >
-              <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 blur-lg transition-all duration-500 ease-in-out group-hover:duration-200 z-10`} />
+              <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 blur-lg transition-all duration-500 ease-in-out group-hover:duration-200 z-10 motion-reduce:opacity-0`} />
                    
               <motion.div 
-                className="relative h-full bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl shadow-lg z-20 p-8 overflow-hidden border border-gray-100 dark:border-gray-700"
+                className="relative h-full bg-background/90 dark:bg-background/80 backdrop-blur-sm rounded-xl shadow-lg z-20 p-6 sm:p-8 overflow-hidden border border-accent/20"
               >
                 {/* Enhanced glow on hover */}
                 <motion.div 
@@ -333,7 +345,7 @@ const ServicesOffered: React.FC = () => {
                 {/* Icon container with anime.js animation */}
                 <div 
                   ref={el => { iconRefs.current[index] = el }}
-                  className={`w-16 h-16 rounded-full mb-6 flex items-center justify-center bg-gradient-to-r ${service.color} text-white relative z-10 overflow-hidden`}
+                  className={`w-16 h-16 rounded-full mb-6 flex items-center justify-center bg-gradient-to-r ${service.color} text-white relative z-10 overflow-hidden motion-reduce:animate-none`}
                 >
                   {/* Inner highlight */}
                   <div className="absolute inset-0.5 rounded-full bg-white/10" />
@@ -354,7 +366,7 @@ const ServicesOffered: React.FC = () => {
                 
                 {/* Title with enhanced hover effect */}
                 <motion.h3 
-                  className={`text-2xl font-bold mb-3 transition-all duration-300 ${service.textColor}`}
+                  className={`text-xl sm:text-2xl font-bold mb-3 transition-all duration-300 ${service.textColor} motion-reduce:hover:scale-100`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -363,7 +375,7 @@ const ServicesOffered: React.FC = () => {
                 
                 {/* Description */}
                 <motion.p 
-                  className="text-gray-600 dark:text-gray-300"
+                  className="text-text/80"
                   initial={{ opacity: 0.8 }}
                   whileHover={{ opacity: 1 }}
                 >
@@ -372,10 +384,11 @@ const ServicesOffered: React.FC = () => {
                 
                 {/* Learn more link that appears on hover */}
                 <motion.div
-                  className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 motion-reduce:hover:scale-100"
                   whileHover={{ scale: 1.1 }}
                 >
                   <div className={`flex items-center ${service.textColor}`}>
+                    {/* TODO: This should ideally be an <a> tag if it navigates */}
                     <span className="mr-2 font-medium">Learn more</span>
                     <svg 
                       className="w-5 h-5"
