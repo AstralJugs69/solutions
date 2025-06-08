@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+{import('tailwindcss').Config} 
 export default {
   darkMode: 'class',
   content: [
@@ -57,7 +57,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        display: ['Poppins', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
@@ -83,32 +83,5 @@ export default {
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
   ],
-  // Explicitly enable all core plugins for Tailwind CSS v4
-  corePlugins: {
-    preflight: true,
-    container: true,
-    backgroundColor: true,
-    textColor: true,
-    borderColor: true,
-    borderRadius: true,
-    borderWidth: true,
-    margin: true,
-    padding: true,
-    width: true,
-    height: true,
-    flex: true,
-    grid: true,
-    gap: true,
-    display: true,
-    position: true,
-    opacity: true,
-    shadow: true,
-    zIndex: true,
-    transitionProperty: true,
-    transitionDuration: true,
-    fontFamily: true,
-    fontSize: true,
-    fontWeight: true,
-    overflow: true,
-  },
+
 }

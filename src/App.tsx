@@ -59,7 +59,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-text">
+    <div className="flex flex-col min-h-screen bg-background text-text w-full overflow-x-hidden max-w-[100vw]">
       <Navbar />
 
       {selectedShowcaseId ? (

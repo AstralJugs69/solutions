@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </div>
       <div className="p-4 flex-1 flex flex-col">
-        <h3 className="font-display text-lg font-medium truncate" style={{ color: '#f8f9fa' }} title={name}>
+        <h3 className="font-heading text-lg font-medium truncate" style={{ color: '#f8f9fa' }} title={name}>
           {name}
         </h3>
         <div className="mt-2 flex items-baseline">

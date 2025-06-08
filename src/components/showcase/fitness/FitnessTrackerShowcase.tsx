@@ -72,7 +72,7 @@ const FitnessTrackerShowcase: React.FC = () => {
         {/* Showcase Header with Profile Snippet */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 md:mb-16">
           <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-display font-bold mb-2 md:mb-4">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-2 md:mb-4">
               Fitness Tracker Showcase
             </h1>
             <p className="text-lg md:text-xl mx-auto md:mx-0 max-w-3xl opacity-80">
@@ -98,7 +98,7 @@ const FitnessTrackerShowcase: React.FC = () => {
 
         {/* Dashboard Section - Activity Summary */}
         <div className="mb-16 md:mb-24">
-          <h2 className="text-2xl md:text-3xl font-display font-semibold mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-8 text-center">
             Today's Activity
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -120,7 +120,7 @@ const FitnessTrackerShowcase: React.FC = () => {
         {/* Workout Log Section */}
         <div className="my-16 md:my-24 pt-12 border-t border-dashed" style={{borderColor: '#0e7490'}}>
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f8fafc' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f8fafc' }}>
               Activity History
             </h2>
           </header>
@@ -129,7 +129,7 @@ const FitnessTrackerShowcase: React.FC = () => {
               <div key={log.id} className="p-4 rounded-lg flex items-center space-x-4" style={{backgroundColor: '#1e40af'}}>
                 <div className="flex-shrink-0" style={{color: '#93c5fd'}}>{log.icon}</div>
                 <div className="flex-grow">
-                  <h4 className="font-display font-semibold" style={{color: '#f8fafc'}}>{log.type}</h4>
+                  <h4 className="font-heading font-semibold" style={{color: '#f8fafc'}}>{log.type}</h4>
                   <p className="text-sm opacity-80">{log.stats}</p>
                 </div>
                 <p className="text-xs opacity-60 flex-shrink-0">{log.dateTime}</p>
@@ -139,7 +139,7 @@ const FitnessTrackerShowcase: React.FC = () => {
           <div className="text-center">
             <button
               type="button"
-              className="btn font-display font-semibold py-2.5 px-6 rounded-lg transition-opacity text-sm"
+              className="btn font-heading font-semibold py-2.5 px-6 rounded-lg transition-opacity text-sm"
               style={{ backgroundColor: '#93c5fd', color: '#1e3a8a' }} // Primary light blue bg, dark blue text for contrast
               onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
               onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
@@ -153,14 +153,14 @@ const FitnessTrackerShowcase: React.FC = () => {
         {/* New Workout Form Mockup Section */}
         <div className="my-16 md:my-24 pt-12 border-t border-dashed" style={{borderColor: '#0e7490'}}>
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f8fafc' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f8fafc' }}>
               Log a New Activity
             </h2>
           </header>
           <div className="max-w-xl mx-auto p-6 md:p-8 rounded-lg shadow-2xl" style={{ backgroundColor: '#1e40af' }}>
             {/* Activity Type Selection */}
             <div className="mb-6">
-              <h4 className="text-lg font-display font-medium mb-3" style={{ color: '#93c5fd' }}>Select Activity Type</h4>
+              <h4 className="text-lg font-heading font-medium mb-3" style={{ color: '#93c5fd' }}>Select Activity Type</h4>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 text-center">
                 {activityTypes.map((type, index) => (
                   <button
@@ -206,7 +206,7 @@ const FitnessTrackerShowcase: React.FC = () => {
             <div className="mt-8 text-center">
               <button
                 type="button"
-                className="btn font-display font-semibold py-3 px-8 rounded-lg transition-opacity text-base"
+                className="btn font-heading font-semibold py-3 px-8 rounded-lg transition-opacity text-base"
                 style={{ backgroundColor: '#93c5fd', color: '#1e3a8a' }} // Primary light blue bg, dark blue text
                 onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
                 onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
@@ -221,7 +221,7 @@ const FitnessTrackerShowcase: React.FC = () => {
         {/* Progress Charts Section */}
         <div className="my-16 md:my-24 pt-12 border-t border-dashed" style={{borderColor: '#0e7490'}}>
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f8fafc' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f8fafc' }}>
               Track Your Growth
             </h2>
           </header>
@@ -243,7 +243,7 @@ const FitnessTrackerShowcase: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Line Chart Mockup for Weight */}
             <div className="p-6 rounded-lg shadow-xl" style={{backgroundColor: '#1e40af'}}>
-              <h4 className="text-lg font-display font-semibold mb-4 text-center" style={{color: '#f8fafc'}}>Weight Over Time</h4>
+              <h4 className="text-lg font-heading font-semibold mb-4 text-center" style={{color: '#f8fafc'}}>Weight Over Time</h4>
               <div className="h-64 w-full">
                 <svg width="100%" height="100%" viewBox="0 0 300 150">
                   {/* Grid lines */}
@@ -277,7 +277,7 @@ const FitnessTrackerShowcase: React.FC = () => {
 
             {/* Bar Chart Mockup for Workout Duration */}
             <div className="p-6 rounded-lg shadow-xl" style={{backgroundColor: '#1e40af'}}>
-              <h4 className="text-lg font-display font-semibold mb-4 text-center" style={{color: '#f8fafc'}}>Workout Duration This Week</h4>
+              <h4 className="text-lg font-heading font-semibold mb-4 text-center" style={{color: '#f8fafc'}}>Workout Duration This Week</h4>
               <div className="h-64 w-full flex items-end justify-around px-2" style={{borderBottom: '1px solid #f0f9ff', borderLeft: '1px solid #f0f9ff'}}>
                 {/* Bars */}
                 {[60, 75, 45, 90, 30, 70, 50].map((height, i) => (

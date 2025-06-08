@@ -61,7 +61,7 @@ const DesignSystemShowcase: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Main Showcase Header */}
         <header className="text-center mb-16 md:mb-24">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4" style={{ color: '#eef2ff' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4" style={{ color: '#eef2ff' }}>
             Aurora Design System
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto" style={{ color: '#eef2ff', opacity: 0.85 }}>
@@ -72,7 +72,7 @@ const DesignSystemShowcase: React.FC = () => {
         {/* Introduction/Overview Section */}
         <section id="ds-introduction" className="mb-16 md:mb-24 text-center md:text-left">
           <div className="max-w-3xl mx-auto md:mx-0">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold mb-6" style={{ color: '#c7d2fe' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6" style={{ color: '#c7d2fe' }}>
               Guiding Principles
             </h2>
             <p className="text-base md:text-lg mb-4 leading-relaxed" style={{ color: '#eef2ff', opacity: 0.9 }}>
@@ -89,12 +89,12 @@ const DesignSystemShowcase: React.FC = () => {
 
         {/* Color Palette Section */}
         <section id="ds-colors" className="mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
             Color Palette
           </h2>
           {designSystemColors.map((category) => (
             <div key={category.name} className="mb-10">
-              <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>
+              <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>
                 {category.name}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
@@ -109,7 +109,7 @@ const DesignSystemShowcase: React.FC = () => {
                         className="w-full h-16 rounded mb-2 border border-white/10"
                         style={{ backgroundColor: color.hex }}
                       ></div>
-                      <p className="font-display font-semibold text-sm" style={{ color: '#eef2ff' }}>{color.name}</p>
+                      <p className="font-heading font-semibold text-sm" style={{ color: '#eef2ff' }}>{color.name}</p>
                       <p className="font-mono text-xs" style={{ color: '#c084fc' }}>{color.hex}</p>
                     </div>
                     <button
@@ -132,22 +132,22 @@ const DesignSystemShowcase: React.FC = () => {
 
         {/* Typography Section */}
         <section id="ds-typography" className="mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
             Typography
           </h2>
           <div className="space-y-12">
             {/* Font Families */}
             <div>
-              <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Font Families</h3>
+              <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Font Families</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 rounded-lg" style={{backgroundColor: '#4f46e5'}}>
                 <div>
-                  <h4 className="text-xl font-display font-semibold mb-2" style={{color: '#c7d2fe'}}>Poppins (Headings)</h4>
-                  <p className="font-display text-4xl font-bold mb-1" style={{color: '#eef2ff'}}>Aa</p>
-                  <p className="font-display" style={{color: '#eef2ff', opacity: 0.9}}>Used for impactful headings and titles.</p>
-                  <p className="font-display text-sm mt-1" style={{color: '#eef2ff', opacity: 0.7}}>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</p>
+                  <h4 className="text-xl font-heading font-semibold mb-2" style={{color: '#c7d2fe'}}>Poppins (Headings)</h4>
+                  <p className="font-heading text-4xl font-bold mb-1" style={{color: '#eef2ff'}}>Aa</p>
+                  <p className="font-heading" style={{color: '#eef2ff', opacity: 0.9}}>Used for impactful headings and titles.</p>
+                  <p className="font-heading text-sm mt-1" style={{color: '#eef2ff', opacity: 0.7}}>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</p>
                 </div>
                 <div>
-                  <h4 className="text-xl font-display font-semibold mb-2" style={{color: '#c7d2fe'}}>Inter (Body & UI)</h4>
+                  <h4 className="text-xl font-heading font-semibold mb-2" style={{color: '#c7d2fe'}}>Inter (Body & UI)</h4>
                   <p className="font-sans text-4xl mb-1" style={{color: '#eef2ff'}}>Aa</p>
                   <p className="font-sans" style={{color: '#eef2ff', opacity: 0.9}}>Optimized for readability in paragraphs and UI elements.</p>
                   <p className="font-sans text-sm mt-1" style={{color: '#eef2ff', opacity: 0.7}}>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</p>
@@ -157,7 +157,7 @@ const DesignSystemShowcase: React.FC = () => {
 
             {/* Type Scale */}
             <div>
-              <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Type Scale</h3>
+              <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Type Scale</h3>
               {[
                 { name: 'Heading 1', font: 'Poppins', weight: 'Bold', size: '48px (3rem)', lineHeight: '1.2', exampleText: 'Major Page Titles' },
                 { name: 'Heading 2', font: 'Poppins', weight: 'Semibold', size: '36px (2.25rem)', lineHeight: '1.3', exampleText: 'Section Headers' },
@@ -177,7 +177,7 @@ const DesignSystemShowcase: React.FC = () => {
             </div>
             {/* Usage Notes */}
             <div>
-                <h3 className="text-2xl font-display font-medium mb-4" style={{ color: '#eef2ff', opacity: 0.95 }}>Usage Notes</h3>
+                <h3 className="text-2xl font-heading font-medium mb-4" style={{ color: '#eef2ff', opacity: 0.95 }}>Usage Notes</h3>
                 <p className="text-base leading-relaxed" style={{ color: '#eef2ff', opacity: 0.9 }}>
                     Maintain a clear hierarchy using the defined type scale. Ensure sufficient contrast for readability. Poppins is generally reserved for headings to provide strong visual anchors, while Inter is used for body text due to its excellent legibility at various sizes.
                 </p>
@@ -188,17 +188,17 @@ const DesignSystemShowcase: React.FC = () => {
 
         {/* Component Library Section */}
         <section id="ds-components" className="mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
             Component Library
           </h2>
 
           {/* Buttons Showcase */}
           <div className="mb-12">
-            <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Buttons</h3>
+            <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Buttons</h3>
             <div className="p-6 rounded-lg space-y-8" style={{backgroundColor: '#4f46e5'}}>
               {(['Primary', 'Secondary'] as const).map(variant => (
                 <div key={variant}>
-                  <h4 className="text-lg font-display font-semibold mb-3" style={{color: '#c7d2fe'}}>{variant} Button</h4>
+                  <h4 className="text-lg font-heading font-semibold mb-3" style={{color: '#c7d2fe'}}>{variant} Button</h4>
                   <div className="flex flex-wrap items-center gap-4">
                     <button type="button" className={`px-5 py-2.5 rounded-md text-sm font-medium shadow-md transition-opacity hover:opacity-80 active:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 motion-reduce:transition-none ${variant === 'Primary' ? 'text-white' : 'text-[#eef2ff]'}`} style={{backgroundColor: variant === 'Primary' ? '#007BFF' : '#6C757D', color: variant === 'Primary' ? '#FFFFFF' : '#eef2ff', ringColor: variant === 'Primary' ? '#0056b3' : '#495057', ringOffsetColor: '#4f46e5'}}>Default</button>
                     <button type="button" className={`px-5 py-2.5 rounded-md text-sm font-medium shadow-md opacity-80 transition-opacity hover:opacity-70 active:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 motion-reduce:transition-none ${variant === 'Primary' ? 'text-white' : 'text-[#eef2ff]'}`} style={{backgroundColor: variant === 'Primary' ? '#0069d9' : '#5a6268', color: variant === 'Primary' ? '#FFFFFF' : '#eef2ff', ringColor: variant === 'Primary' ? '#0056b3' : '#495057', ringOffsetColor: '#4f46e5'}}>Hover (Simulated)</button>
@@ -208,7 +208,7 @@ const DesignSystemShowcase: React.FC = () => {
                 </div>
               ))}
               <div>
-                 <h4 className="text-lg font-display font-semibold mb-3" style={{color: '#c7d2fe'}}>Outline Button</h4>
+                 <h4 className="text-lg font-heading font-semibold mb-3" style={{color: '#c7d2fe'}}>Outline Button</h4>
                  <div className="flex flex-wrap items-center gap-4">
                     <button type="button" className="px-5 py-2.5 rounded-md text-sm font-medium border shadow-sm transition-colors hover:bg-white/10 active:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 motion-reduce:transition-none" style={{borderColor: '#007BFF', color: '#007BFF', ringColor: '#007BFF', ringOffsetColor: '#4f46e5'}}>Default</button>
                     <button type="button" className="px-5 py-2.5 rounded-md text-sm font-medium border shadow-sm bg-white/10 transition-colors active:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 motion-reduce:transition-none" style={{borderColor: '#007BFF', color: '#007BFF', ringColor: '#007BFF', ringOffsetColor: '#4f46e5'}}>Hover</button>
@@ -221,13 +221,13 @@ const DesignSystemShowcase: React.FC = () => {
 
           {/* Card Showcase */}
           <div className="mb-12">
-            <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Cards</h3>
+            <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Cards</h3>
             <div className="p-6 rounded-lg" style={{backgroundColor: '#4f46e5'}}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="rounded-lg shadow-xl overflow-hidden" style={{backgroundColor: '#FFFFFF' /* Documented DS Card BG */}}>
                   <img src="https://via.placeholder.com/400x200/007BFF/FFFFFF?text=Card+Image" alt="Placeholder Card Image" className="w-full h-32 object-cover"/>
                   <div className="p-5">
-                    <h4 className="font-display text-lg font-semibold mb-2" style={{color: '#212529' /* Documented DS Text */}}>Card Title Here</h4>
+                    <h4 className="font-heading text-lg font-semibold mb-2" style={{color: '#212529' /* Documented DS Text */}}>Card Title Here</h4>
                     <p className="font-sans text-sm mb-4" style={{color: '#495057' /* Documented DS Text Muted */}}>
                       This is a brief description of the card content. It can span a few lines.
                     </p>
@@ -235,7 +235,7 @@ const DesignSystemShowcase: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                    <h4 className="text-lg font-display font-semibold mb-3" style={{color: '#c7d2fe'}}>Simple Card</h4>
+                    <h4 className="text-lg font-heading font-semibold mb-3" style={{color: '#c7d2fe'}}>Simple Card</h4>
                     <p className="text-sm" style={{color: '#eef2ff', opacity:0.8}}>Cards are used to group related content and actions. They typically include an image (optional), a title, descriptive text, and calls to action. This example uses the documented design system's light theme style.</p>
                 </div>
               </div>
@@ -244,7 +244,7 @@ const DesignSystemShowcase: React.FC = () => {
 
           {/* Input Field Showcase */}
           <div>
-            <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Input Fields</h3>
+            <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Input Fields</h3>
             <div className="p-6 rounded-lg space-y-6" style={{backgroundColor: '#4f46e5'}}>
               <div>
                 <label htmlFor="ds-input-default" className="block text-sm font-medium mb-1" style={{color: '#c7d2fe'}}>Default Input</label>
@@ -266,17 +266,17 @@ const DesignSystemShowcase: React.FC = () => {
 
         {/* Usage Guidelines Section */}
         <section id="ds-guidelines" className="mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-10 md:mb-12 text-center md:text-left" style={{ color: '#c7d2fe' }}>
             Usage Guidelines
           </h2>
           <div className="p-6 rounded-lg" style={{backgroundColor: '#4f46e5'}}> {/* Card-like background for the whole guidelines section */}
-            <h3 className="text-2xl font-display font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Button Usage: Do's and Don'ts</h3>
+            <h3 className="text-2xl font-heading font-medium mb-6" style={{ color: '#eef2ff', opacity: 0.95 }}>Button Usage: Do's and Don'ts</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* "Do" Example */}
               <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(40, 167, 69, 0.1)' /* Subtle green tint for Do */ }}>
                 <div className="flex items-center mb-3">
                   <FiCheckCircle className="w-6 h-6 mr-2" style={{ color: '#28A745' }} />
-                  <h4 className="text-lg font-display font-semibold" style={{color: '#eef2ff'}}>DO: Use for Primary Actions</h4>
+                  <h4 className="text-lg font-heading font-semibold" style={{color: '#eef2ff'}}>DO: Use for Primary Actions</h4>
                 </div>
                 <p className="text-sm mb-4" style={{ color: '#eef2ff', opacity: 0.85 }}>
                   Use the primary button for the main call to action on a page or within a component. It should guide users to the most important next step.
@@ -292,7 +292,7 @@ const DesignSystemShowcase: React.FC = () => {
               <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(220, 53, 69, 0.1)' /* Subtle red tint for Don't */ }}>
                 <div className="flex items-center mb-3">
                   <FiXCircle className="w-6 h-6 mr-2" style={{ color: '#DC3545' }} />
-                  <h4 className="text-lg font-display font-semibold" style={{color: '#eef2ff'}}>DON'T: Overuse Primary Buttons</h4>
+                  <h4 className="text-lg font-heading font-semibold" style={{color: '#eef2ff'}}>DON'T: Overuse Primary Buttons</h4>
                 </div>
                 <p className="text-sm mb-4" style={{ color: '#eef2ff', opacity: 0.85 }}>
                   Avoid using multiple primary buttons in the same visual area. It can confuse users about which action is most important. Use secondary or outline buttons for less critical actions.

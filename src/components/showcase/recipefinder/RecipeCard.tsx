@@ -41,7 +41,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
         </button>
       </div>
       <div className="p-4">
-        <h3 className="font-display text-lg font-semibold mb-1 truncate" title={name}>
+        <h3 className="font-heading text-lg font-semibold mb-1 truncate" title={name}>
           {name}
         </h3>
         <div className="flex items-center justify-between text-xs opacity-80 font-sans">

@@ -42,7 +42,7 @@ const EcommerceShowcase: React.FC = () => {
         <div className="absolute inset-0 bg-black/60"></div> {/* Dark overlay for text contrast */}
         <div className="relative container mx-auto px-4 z-10">
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold mb-6 leading-tight"
             style={{ color: '#f8f9fa' }} // Explicitly theme text color
           >
             Tech Deals of the Week
@@ -55,7 +55,7 @@ const EcommerceShowcase: React.FC = () => {
           </p>
           <button
             type="button"
-            className="text-base md:text-lg font-display font-semibold py-3 px-8 md:py-4 md:px-10 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:opacity-90 hover:shadow-lg motion-reduce:transition-none"
+            className="text-base md:text-lg font-heading font-semibold py-3 px-8 md:py-4 md:px-10 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:opacity-90 hover:shadow-lg motion-reduce:transition-none"
             style={{ backgroundColor: '#e94560', color: '#f8f9fa' }}
             onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#c7304a'} // Darken on hover
             onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#e94560'}
@@ -69,7 +69,7 @@ const EcommerceShowcase: React.FC = () => {
       <div className="container mx-auto px-4 py-12 md:py-20"> {/* Added padding for subsequent sections */}
         {/* Original Showcase Intro Text - can be removed or kept if desired */}
         <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: '#f8f9fa' }}>
+          <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4" style={{ color: '#f8f9fa' }}>
             E-Commerce Platform Showcase
           </h1>
           <p className="text-lg md:text-xl mx-auto max-w-3xl" style={{ color: '#f8f9fa', opacity: 0.8 }}>
@@ -91,7 +91,7 @@ const EcommerceShowcase: React.FC = () => {
                 <li aria-current="page">All Products</li>
               </ol>
             </nav>
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f8f9fa' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f8f9fa' }}>
               Our Latest Collection
             </h2>
           </header>
@@ -99,11 +99,11 @@ const EcommerceShowcase: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-8">
             {/* Filter Sidebar */}
             <aside className="w-full md:w-1/4 lg:w-1/5 p-6 rounded-lg shadow-md" style={{ backgroundColor: '#16213e' }}>
-              <h3 className="text-xl font-display font-semibold mb-6" style={{ color: '#f8f9fa' }}>Filters</h3>
+              <h3 className="text-xl font-heading font-semibold mb-6" style={{ color: '#f8f9fa' }}>Filters</h3>
 
               {/* Categories Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{ color: '#e94560' }}>Categories</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{ color: '#e94560' }}>Categories</h4>
                 <div className="space-y-2">
                   <FilterCheckbox id="cat-apparel" label="Apparel" />
                   <FilterCheckbox id="cat-electronics" label="Electronics" />
@@ -114,7 +114,7 @@ const EcommerceShowcase: React.FC = () => {
 
               {/* Size Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{ color: '#e94560' }}>Size</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{ color: '#e94560' }}>Size</h4>
                 <div className="flex flex-wrap gap-2">
                   {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map(size => (
                     <button key={size} type="button" className="px-3 py-1 text-sm border rounded-md hover:border-[#e94560] focus:border-[#e94560] focus:text-[#e94560]" style={{borderColor: '#0f3460', color: '#f8f9fa', opacity:0.8}}>{size}</button>
@@ -124,7 +124,7 @@ const EcommerceShowcase: React.FC = () => {
 
               {/* Color Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{ color: '#e94560' }}>Color</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{ color: '#e94560' }}>Color</h4>
                 <div className="space-y-2">
                   <ColorSwatch color="#FF0000" name="Red" />
                   <ColorSwatch color="#0000FF" name="Blue" />
@@ -136,7 +136,7 @@ const EcommerceShowcase: React.FC = () => {
 
               {/* Price Range Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{ color: '#e94560' }}>Price Range</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{ color: '#e94560' }}>Price Range</h4>
                 <div className="h-2 rounded-full w-full" style={{backgroundColor: '#0f3460'}}>
                   <div className="h-2 rounded-full w-3/4" style={{backgroundColor: '#e94560'}}></div> {/* Mockup fill */}
                 </div>
@@ -195,7 +195,7 @@ const EcommerceShowcase: React.FC = () => {
         {/* Product Detail Page (PDP) Section - Mockup */}
         <div className="my-16 md:my-24 pt-12 border-t border-[#0f3460]">
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f8f9fa' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f8f9fa' }}>
               Product In Focus
             </h2>
             <p className="text-lg text-[#f8f9fa]/80">This is how a detailed product view could look.</p>
@@ -221,7 +221,7 @@ const EcommerceShowcase: React.FC = () => {
 
                 {/* Right Column: Product Info */}
                 <div className="w-full md:w-1/2">
-                  <h1 className="font-display text-3xl lg:text-4xl font-bold mb-3" style={{ color: '#f8f9fa' }}>{product.name}</h1>
+                  <h1 className="font-heading text-3xl lg:text-4xl font-bold mb-3" style={{ color: '#f8f9fa' }}>{product.name}</h1>
                   <div className="flex items-baseline mb-4">
                     <span className="font-sans text-2xl lg:text-3xl font-semibold" style={{ color: product.originalPrice ? '#e94560' : '#f8f9fa' }}>
                       ${product.price.toFixed(2)}
@@ -269,8 +269,8 @@ const EcommerceShowcase: React.FC = () => {
 
                   {/* CTAs */}
                   <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                    <button type="button" className="btn flex-1 py-3 px-6 rounded font-display font-semibold text-base transition-opacity" style={{backgroundColor: '#e94560', color: '#f8f9fa'}} onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>Add to Cart</button>
-                    <button type="button" className="btn flex-1 py-3 px-6 rounded font-display font-semibold text-base border transition-colors" style={{borderColor: '#0f3460', color: '#f8f9fa'}} onMouseOver={(e) => e.currentTarget.style.borderColor = '#22d3ee'} onMouseOut={(e) => e.currentTarget.style.borderColor = '#0f3460'}>Add to Wishlist</button>
+                    <button type="button" className="btn flex-1 py-3 px-6 rounded font-heading font-semibold text-base transition-opacity" style={{backgroundColor: '#e94560', color: '#f8f9fa'}} onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>Add to Cart</button>
+                    <button type="button" className="btn flex-1 py-3 px-6 rounded font-heading font-semibold text-base border transition-colors" style={{borderColor: '#0f3460', color: '#f8f9fa'}} onMouseOver={(e) => e.currentTarget.style.borderColor = '#22d3ee'} onMouseOut={(e) => e.currentTarget.style.borderColor = '#0f3460'}>Add to Wishlist</button>
                   </div>
 
                   {/* Tabs for Description, Specs, Reviews */}
@@ -296,12 +296,12 @@ const EcommerceShowcase: React.FC = () => {
         {/* Mini Cart Section - Mockup */}
         <div className="my-16 md:my-24 pt-12 border-t border-[#0f3460]">
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f8f9fa' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f8f9fa' }}>
               Mini Cart / Cart Preview
             </h2>
           </header>
           <div className="max-w-sm mx-auto p-6 rounded-lg shadow-xl" style={{ backgroundColor: '#16213e' }}>
-            <h3 className="text-xl font-display font-semibold mb-4" style={{ color: '#f8f9fa' }}>Your Cart (2 items)</h3>
+            <h3 className="text-xl font-heading font-semibold mb-4" style={{ color: '#f8f9fa' }}>Your Cart (2 items)</h3>
             <ul className="space-y-4 mb-6">
               {placeholderProducts.slice(0,2).map(item => (
                 <li key={`cart-${item.id}`} className="flex items-center space-x-3">

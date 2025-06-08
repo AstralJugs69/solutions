@@ -14,7 +14,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ title, count, icon }) => (
     </div>
     <div>
       <p className="text-sm font-sans opacity-80">{title}</p>
-      <p className="text-2xl font-display font-bold">{count}</p>
+      <p className="text-2xl font-heading font-bold">{count}</p>
     </div>
   </div>
 );
@@ -109,7 +109,7 @@ const TaskManagerShowcase: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Main Showcase Header */}
         <header className="text-center mb-16 md:mb-24">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4">
             Task Manager Pro - Showcase
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-85">
@@ -120,7 +120,7 @@ const TaskManagerShowcase: React.FC = () => {
         {/* Dashboard/Overview Section */}
         <section id="tm-dashboard" className="mb-16 md:mb-24">
           <div className="flex justify-between items-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold" style={{ color: '#f0f9ff' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold" style={{ color: '#f0f9ff' }}>
               Dashboard Overview
             </h2>
             <button
@@ -141,13 +141,13 @@ const TaskManagerShowcase: React.FC = () => {
 
         {/* Kanban Board View Section */}
         <section id="tm-kanban" className="mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-8 md:mb-12 text-center md:text-left" style={{ color: '#f0f9ff' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-8 md:mb-12 text-center md:text-left" style={{ color: '#f0f9ff' }}>
             Project Board: Alpha Project
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
             {kanbanColumns.map(column => (
               <div key={column.id} className="p-4 rounded-lg min-h-[300px]" style={{ backgroundColor: '#0e7490' /* secondary */ }}>
-                <h3 className="font-display text-xl font-semibold mb-4 text-center" style={{ color: '#67e8f9' /* primary cyan */ }}>
+                <h3 className="font-heading text-xl font-semibold mb-4 text-center" style={{ color: '#67e8f9' /* primary cyan */ }}>
                   {column.title} ({column.tasks.length})
                 </h3>
                 <div className="space-y-3">
@@ -174,13 +174,13 @@ const TaskManagerShowcase: React.FC = () => {
         {/* Task Detail View (Modal/Pane Mockup) Section */}
         <section id="tm-task-detail" className="my-16 md:my-24 pt-12 border-t border-dashed" style={{borderColor: '#0e7490'}}>
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f0f9ff' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f0f9ff' }}>
               Task Details
             </h2>
           </header>
           <div className="max-w-3xl mx-auto p-6 md:p-8 rounded-xl shadow-2xl" style={{ backgroundColor: '#0e7490' /* secondary */ }}>
             {/* Task Title */}
-            <h3 className="text-2xl font-display font-semibold mb-6 border-b pb-3" style={{ color: '#67e8f9', borderColor: '#164e63' }}>
+            <h3 className="text-2xl font-heading font-semibold mb-6 border-b pb-3" style={{ color: '#67e8f9', borderColor: '#164e63' }}>
               {selectedTaskForDetail.title}
             </h3>
 
@@ -279,7 +279,7 @@ const TaskManagerShowcase: React.FC = () => {
         {/* Team Collaboration Snippet Section */}
         <section id="tm-collaboration" className="my-16 md:my-24 pt-12 border-t border-dashed" style={{borderColor: '#0e7490'}}>
           <header className="mb-8 md:mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f0f9ff' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f0f9ff' }}>
               Team Collaboration Hub
             </h2>
             <p className="text-lg text-[#f0f9ff]/80 max-w-xl mx-auto">Stay connected and work efficiently with your team.</p>
@@ -289,7 +289,7 @@ const TaskManagerShowcase: React.FC = () => {
             {/* Left Column: Team Members & Sharing */}
             <div className="p-6 rounded-lg shadow-xl space-y-6" style={{backgroundColor: '#0e7490'}}>
               <div>
-                <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#67e8f9'}}>Project Team</h3>
+                <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#67e8f9'}}>Project Team</h3>
                 <div className="flex items-center space-x-3 mb-4">
                   {['AJ', 'SA', 'KV', 'LX'].map(initials => (
                     <span key={initials} className="flex items-center justify-center w-10 h-10 text-sm rounded-full border-2" style={{backgroundColor: '#164e63', color: '#f0f9ff', borderColor: '#67e8f9'}} title={`User ${initials}`}>
@@ -306,7 +306,7 @@ const TaskManagerShowcase: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#67e8f9'}}>Share Project</h3>
+                <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#67e8f9'}}>Share Project</h3>
                 <div className="space-y-3">
                   <input type="email" placeholder="Invite by email (e.g., user@example.com)" className="w-full p-2.5 rounded-md text-sm border-none placeholder-opacity-50" style={{backgroundColor: '#164e63', color: '#f0f9ff'}} />
                   <div className="flex items-center justify-between p-2.5 rounded-md" style={{backgroundColor: '#164e63'}}>
@@ -324,7 +324,7 @@ const TaskManagerShowcase: React.FC = () => {
 
             {/* Right Column: Activity Feed */}
             <div className="p-6 rounded-lg shadow-xl" style={{backgroundColor: '#0e7490'}}>
-              <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#67e8f9'}}>Recent Activity</h3>
+              <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#67e8f9'}}>Recent Activity</h3>
               <ul className="space-y-3 max-h-[300px] overflow-y-auto">
                 {[
                   {user: 'Alex J.', action: 'completed task "Setup project repository"', time: '1h ago', icon: <FiCheckCircle className="text-green-400 w-4 h-4"/>},

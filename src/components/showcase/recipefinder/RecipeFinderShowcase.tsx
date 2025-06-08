@@ -32,7 +32,7 @@ const RecipeFinderShowcase: React.FC = () => {
     <div style={{ backgroundColor: '#1e3e1b', color: '#f7fee7' }} className="py-12 md:py-16 showcase-recipe-finder font-sans">
       {/* Main Showcase Header - Centered within the component itself */}
       <header className="text-center pt-4 pb-12 md:pb-16">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 leading-tight">
           RecipeRoam
         </h1>
         <p className="text-lg md:text-xl max-w-xl mx-auto opacity-90">
@@ -59,7 +59,7 @@ const RecipeFinderShowcase: React.FC = () => {
         <div>
           {/* Popular This Week */}
           <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6" style={{color: '#f7fee7'}}>Popular This Week</h2>
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6" style={{color: '#f7fee7'}}>Popular This Week</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
               {popularRecipes.map(recipe => <RecipeCard key={recipe.id} {...recipe} />)}
             </div>
@@ -67,7 +67,7 @@ const RecipeFinderShowcase: React.FC = () => {
 
           {/* Quick & Easy Dinners */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6" style={{color: '#f7fee7'}}>Quick & Easy Dinners</h2>
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6" style={{color: '#f7fee7'}}>Quick & Easy Dinners</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
               {quickDinners.map(recipe => <RecipeCard key={recipe.id} {...recipe} />)}
             </div>
@@ -79,17 +79,17 @@ const RecipeFinderShowcase: React.FC = () => {
       {/* Recipe Listing/Search Results Page Section */}
       <section id="rf-listing" className="container mx-auto px-4 py-12 md:py-16 border-t border-dashed" style={{borderColor: '#3f6212'}}>
          <header className="mb-8 md:mb-12 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f7fee7' }}>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f7fee7' }}>
               Search Results for "Chicken"
             </h2>
           </header>
           <div className="flex flex-col md:flex-row gap-8 items-start">
             {/* Filter Sidebar Mockup */}
             <aside className="w-full md:w-1/4 lg:w-1/5 p-6 rounded-xl shadow-lg" style={{backgroundColor: '#3f6212'}}>
-              <h3 className="text-xl font-display font-semibold mb-6" style={{color: '#f7fee7'}}>Filters</h3>
+              <h3 className="text-xl font-heading font-semibold mb-6" style={{color: '#f7fee7'}}>Filters</h3>
               {/* Cuisine Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{color: '#a3e635'}}>Cuisine</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{color: '#a3e635'}}>Cuisine</h4>
                 <div className="space-y-2">
                   <FilterCheckbox id="cuisine-italian" label="Italian" />
                   <FilterCheckbox id="cuisine-mexican" label="Mexican" checked />
@@ -99,7 +99,7 @@ const RecipeFinderShowcase: React.FC = () => {
               </div>
               {/* Dietary Restrictions Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{color: '#a3e635'}}>Dietary Needs</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{color: '#a3e635'}}>Dietary Needs</h4>
                 <div className="space-y-2">
                   <FilterCheckbox id="diet-vegetarian" label="Vegetarian" />
                   <FilterCheckbox id="diet-glutenfree" label="Gluten-Free" checked/>
@@ -108,7 +108,7 @@ const RecipeFinderShowcase: React.FC = () => {
               </div>
               {/* Cook Time Filter */}
               <div className="mb-6">
-                <h4 className="text-md font-display font-medium mb-3" style={{color: '#a3e635'}}>Cook Time</h4>
+                <h4 className="text-md font-heading font-medium mb-3" style={{color: '#a3e635'}}>Cook Time</h4>
                 <div className="space-y-2">
                   <FilterCheckbox id="time-under15" label="Under 15 min" />
                   <FilterCheckbox id="time-under30" label="Under 30 min" checked/>
@@ -144,7 +144,7 @@ const RecipeFinderShowcase: React.FC = () => {
       {/* Recipe Detail Page (PDP) Section - Mockup */}
       <section id="rf-detail" className="container mx-auto px-4 py-12 md:py-16 border-t border-dashed" style={{borderColor: '#3f6212'}}>
         <header className="mb-8 md:mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f7fee7' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f7fee7' }}>
             Delicious Classic Tomato Pasta
           </h2>
           <p className="text-lg text-[#f7fee7]/80">A closer look at this amazing recipe.</p>
@@ -176,7 +176,7 @@ const RecipeFinderShowcase: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {/* Ingredients List */}
               <div className="md:col-span-1">
-                <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#a3e635'}}>Ingredients</h3>
+                <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#a3e635'}}>Ingredients</h3>
                 <ul className="space-y-2 text-sm">
                   {['400g Spaghetti', '1 can (400g) Chopped Tomatoes', '2 cloves Garlic, minced', '1 Onion, chopped', '2 tbsp Olive Oil', '1 tsp Dried Oregano', 'Salt and Pepper to taste', 'Fresh Basil leaves', 'Parmesan Cheese (optional)'].map((ing, i) => (
                     <li key={i} className="flex items-center">
@@ -189,7 +189,7 @@ const RecipeFinderShowcase: React.FC = () => {
 
               {/* Instructions */}
               <div className="md:col-span-2">
-                <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#a3e635'}}>Instructions</h3>
+                <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#a3e635'}}>Instructions</h3>
                 <ol className="list-decimal list-inside space-y-3 text-sm leading-relaxed">
                   <li>Heat olive oil in a large pan over medium heat. Add chopped onion and cook until softened, about 5 minutes.</li>
                   <li>Add minced garlic and dried oregano, cook for another minute until fragrant.</li>
@@ -203,7 +203,7 @@ const RecipeFinderShowcase: React.FC = () => {
 
             {/* Nutritional Info (Mockup) */}
             <div className="mb-8 p-4 rounded-lg" style={{backgroundColor: '#1e3e1b', opacity:0.8}}>
-              <h4 className="text-lg font-display font-semibold mb-2" style={{color: '#a3e635'}}>Nutritional Information (per serving - approx.)</h4>
+              <h4 className="text-lg font-heading font-semibold mb-2" style={{color: '#a3e635'}}>Nutritional Information (per serving - approx.)</h4>
               <ul className="text-xs grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-1">
                 <li>Calories: 450</li>
                 <li>Protein: 15g</li>
@@ -216,7 +216,7 @@ const RecipeFinderShowcase: React.FC = () => {
 
             {/* User Reviews Snippet */}
             <div className="mb-8">
-              <h4 className="text-lg font-display font-semibold mb-3" style={{color: '#a3e635'}}>What Others Are Saying</h4>
+              <h4 className="text-lg font-heading font-semibold mb-3" style={{color: '#a3e635'}}>What Others Are Saying</h4>
               <div className="space-y-3">
                 {[
                   {name: 'FoodieFan123', rating: 5, comment: "Absolutely delicious and so easy to make!"},
@@ -247,14 +247,14 @@ const RecipeFinderShowcase: React.FC = () => {
       {/* Meal Planner/Saved Recipes Snippet Section */}
       <section id="rf-meal-planner" className="container mx-auto px-4 py-12 md:py-16 border-t border-dashed" style={{borderColor: '#3f6212'}}>
         <header className="mb-8 md:mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#f7fee7' }}>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold" style={{ color: '#f7fee7' }}>
             My Meal Plan & Favorites
           </h2>
         </header>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Meal Planner Mockup */}
           <div className="lg:col-span-2 p-6 rounded-xl shadow-xl" style={{backgroundColor: '#3f6212'}}>
-            <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#a3e635'}}>This Week's Plan</h3>
+            <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#a3e635'}}>This Week's Plan</h3>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2 text-center text-xs font-sans">
               {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
                 <div key={day} className="p-1.5 rounded-lg" style={{backgroundColor: '#1e3e1b'}}>
@@ -270,7 +270,7 @@ const RecipeFinderShowcase: React.FC = () => {
           </div>
           {/* Saved Recipes Snippet */}
           <div className="p-6 rounded-xl shadow-xl" style={{backgroundColor: '#3f6212'}}>
-            <h3 className="text-xl font-display font-semibold mb-4" style={{color: '#a3e635'}}>Saved Favorites</h3>
+            <h3 className="text-xl font-heading font-semibold mb-4" style={{color: '#a3e635'}}>Saved Favorites</h3>
             <div className="space-y-3">
               {popularRecipes.slice(0,2).map(recipe => (
                  <div key={`fav-${recipe.id}`} className="flex items-center space-x-3 p-2 rounded-md hover:opacity-80 cursor-pointer" style={{backgroundColor: '#1e3e1b'}}>

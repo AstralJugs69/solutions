@@ -26,7 +26,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
       style={{ backgroundColor: '#1e40af', color: '#f8fafc' }} // secondary-bg, text
     >
       <div className="flex items-center justify-between w-full mb-3">
-        <h3 className="font-display text-lg font-medium" style={{ color: '#f8fafc' }}>{title}</h3>
+        <h3 className="font-heading text-lg font-medium" style={{ color: '#f8fafc' }}>{title}</h3>
         <div style={{ color: '#93c5fd' }}> {/* primary light blue for icon */}
           {icon}
         </div>
@@ -59,7 +59,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="font-display text-3xl font-bold" style={{ color: '#f8fafc' }}>{value}</span>
+          <span className="font-heading text-3xl font-bold" style={{ color: '#f8fafc' }}>{value}</span>
           <span className="font-sans text-xs" style={{ color: '#f8fafc', opacity: 0.8 }}>{unit}</span>
         </div>
       </div>

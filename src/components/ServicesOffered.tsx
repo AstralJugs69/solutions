@@ -242,7 +242,7 @@ const ServicesOffered: React.FC = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90">
+    <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90">
       {/* Background pattern */}
       <div className="absolute inset-0 -z-10 opacity-30 dark:opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -284,7 +284,7 @@ const ServicesOffered: React.FC = () => {
 
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-16 motion-reduce:animate-none motion-reduce:transition-none"
+          className="text-center mb-24 motion-reduce:animate-none motion-reduce:transition-none"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -317,7 +317,7 @@ const ServicesOffered: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 motion-reduce:animate-none motion-reduce:transition-none"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 motion-reduce:animate-none motion-reduce:transition-none"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -334,7 +334,7 @@ const ServicesOffered: React.FC = () => {
               <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 blur-lg transition-all duration-500 ease-in-out group-hover:duration-200 z-10 motion-reduce:opacity-0`} />
                    
               <motion.div 
-                className="relative h-full bg-background/90 dark:bg-background/80 backdrop-blur-sm rounded-xl shadow-lg z-20 p-6 sm:p-8 overflow-hidden border border-accent/20"
+                className="relative h-full bg-background/90 dark:bg-background/80 backdrop-blur-sm rounded-xl shadow-lg z-20 p-8 sm:p-10 overflow-hidden border border-accent/20"
               >
                 {/* Enhanced glow on hover */}
                 <motion.div 
@@ -345,7 +345,7 @@ const ServicesOffered: React.FC = () => {
                 {/* Icon container with anime.js animation */}
                 <div 
                   ref={el => { iconRefs.current[index] = el }}
-                  className={`w-16 h-16 rounded-full mb-6 flex items-center justify-center bg-gradient-to-r ${service.color} text-white relative z-10 overflow-hidden motion-reduce:animate-none`}
+                  className={`w-16 h-16 rounded-full mb-8 flex items-center justify-center bg-gradient-to-r ${service.color} text-white relative z-10 overflow-hidden motion-reduce:animate-none`}
                 >
                   {/* Inner highlight */}
                   <div className="absolute inset-0.5 rounded-full bg-white/10" />
@@ -366,7 +366,7 @@ const ServicesOffered: React.FC = () => {
                 
                 {/* Title with enhanced hover effect */}
                 <motion.h3 
-                  className={`text-xl sm:text-2xl font-bold mb-3 transition-all duration-300 ${service.textColor} motion-reduce:hover:scale-100`}
+                  className={`text-xl sm:text-2xl font-bold mb-4 transition-all duration-300 ${service.textColor} motion-reduce:hover:scale-100`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
